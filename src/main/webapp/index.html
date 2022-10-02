@@ -1,0 +1,174 @@
+<!--This program code displays a survey page of a university which takes information about how the university is like-->
+<!-- Author : Janga Bhargavi-G01353479-->
+<html><head>
+      <title>Student Survey form</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <style>
+         html,body{font-family: "Times New Roman"; background-image: url("bgm.png");}
+         h1 {color: #000000;}
+         input[type=text], input[type=tel], input[type=number], input[type=e-mail], input[type=date], input[type=list], select, 
+         #get {width: 100%;}
+         .bgimg-1 {background-image: url("bgm.png");height: 100%;}
+         .heading {border: 5px solid #ffa74a;padding: 5px;box-shadow: 5px 10px;}
+         .main-section {padding: 0 20% 0 20%;}
+         .required {color:red; font-size:1.5em;}
+      </style>
+   </head>
+   <body >
+      
+      <header class="header">
+      </header>
+      <section class="main-section">
+         <article class="w3-container">
+            <h1 class="heading">Student Survey Form about GMU </h1>
+            <br><br>
+            <form action="#" autocomplete="on">
+              
+               <div class="w3-container ">
+                  <div class="w3-row">
+                     <div class="w3-half">
+                        <label for="fname">First name:<span class="required">*</span></label>
+                     </div>
+                     <div class="w3-half"><input type="text" id="fname" name="fname" placeholder="First Name" autofocus="" required=""></div>
+                  </div>
+               </div>
+               <br>
+               <div class="w3-container ">
+                  <div class="w3-row">
+                     <div class="w3-half"><label for="lname">Last name:<span class="required">*</span>
+                     </label></div>
+                     <div class="w3-half"><input type="text" id="lname" name="lname" placeholder="Last Name"></div>
+                  </div>
+               </div>
+               <br>
+               
+               <br>
+               <div class="w3-container ">
+                  <div class="w3-row">
+                     <div class="w3-half"> <label for="address">Street Address:<span class="required">*</span></label></div>
+                     <div class="w3-half"><textarea id="address" name="address" rows="4" cols="50"></textarea></div>
+                  </div>
+               </div>
+               <br>
+               <div class="w3-container ">
+                  <div class="w3-row">
+                     <div class="w3-half"><label for="City">City: <span class="required">*</span></label></div>
+                     <div class="w3-half"><input type="text" id="City" name="City" placeholder="eg:Fairfax"></div>
+                  </div>
+               </div>
+               <br>
+               <div class="w3-container ">
+                  <div class="w3-row">
+                     <div class="w3-half"><label for="State">State: <span class="required">*</span></label></div>
+                     <div class="w3-half"><input type="text" id="State" name="State" placeholder="eg:Virginia"></div>
+                  </div>
+               </div>
+               <br>
+               <div class="w3-container ">
+                  <div class="w3-row">
+                     <div class="w3-half"><label for="ZipCode">Zip: <span class="required">*</span></label></div>
+                     <div class="w3-half"><input type="number" id="ZipCode" name="ZipCode" placeholder="eg:22030"><br><br></div>
+                  </div>
+               </div>
+               <br>
+               <div class="w3-container ">
+                  <div class="w3-row">
+                     <div class="w3-half"><label for="telnumber">Telephone Number:<span class="required">*</span></label></div>
+                     <div class="w3-half"><input type="tel" id="telnumber" name="telnumber" placeholder="530-123-1234" required=""></div>
+                  </div>
+               </div>
+               <br>
+               <div class="w3-container ">
+                  <div class="w3-row">
+                     <div class="w3-half"><label for="mail">E-Mail:<span class="required">*</span> </label></div>
+                     <div class="w3-half"><input type="email" id="mail" name="mail" placeholder="abc@xyz.com" required=""></div>
+                  </div>
+               </div>
+               <br>
+               <br>
+               <div class="w3-container ">
+                  <div class="w3-row">
+                     <div class="w3-half"><label for="date">Date of Survey:<span class="required">*</span></label></div>
+                     <div class="w3-half"><input type="date" id="date" name="date" placeholder="yyyy-mm-dd"></div>
+                  </div>
+               </div>
+               <br>
+               <!--CheckBox-->
+               <div class="w3-container ">
+                  <div class="w3-row">
+                     <div class="w3-half">What do you like most about the campus:</div>
+                     <div class="w3-half">
+                        <input type="checkbox" id="checkbox1" name="checkbox1" value="students">
+                        <label for="checkbox1">Students</label><br>
+                        <input type="checkbox" id="checkbox2" name="checkbox2" value="location">
+                        <label for="checkbox2">Location</label><br>
+                        <input type="checkbox" id="checkbox3" name="checkbox3" value="campus">
+                        <label for="checkbox3">Campus</label><br>
+                        <input type="checkbox" id="checkbox4" name="checkbox4" value="dorms">
+                        <label for="checkbox4">Atmosphere</label><br>
+                        <input type="checkbox" id="checkbox5" name="checkbox5" value="sports">
+                        <label for="checkbox5">Dorm Rooms</label><br>
+                        <input type="checkbox" id="checkbox6" name="checkbox6" value="atmosphere">
+                        <label for="checkbox6">Sports</label><br>
+                     </div>
+                  </div>
+               </div>
+               <br>
+               <!--Radio Buttons-->
+               <div class="w3-container ">
+                  <div class="w3-row">
+                     <div class="w3-half">How did you hear about us:</div>
+                     <div class="w3-half">   
+                        <input type="radio" id="friends" name="heardus" value="friends">
+                        <label for="friends">Friends</label>
+                        <input type="radio" id="television" name="heardus" value="television">
+                        <label for="television">Television</label><br>
+                        <input type="radio" id="Internet" name="heardus" value="Internet">
+                        <label for="Internet">Internet</label>
+                        <input type="radio" id="others" name="heardus" value="others">
+                        <label for="others">Other</label>
+                     </div>
+                  </div>
+               </div>
+               <br>
+               <!--Drop down list for Recommendation-->
+               <div class="w3-container ">
+                  <div class="w3-row">
+                     <div class="w3-half"> <label for="recommendation">How likely do you Recommend this school to other students:</label></div>
+                     <div class="w3-half">
+                        <select id="recommendation" name="recommendation">
+                           <option value="Very">Likely</option>
+                           <option value="Likely">Very Likely</option>
+                           <option value="Unlikely">Unlikely</option>
+                        </select>
+                     </div>
+                  </div>
+               </div>
+               <br>   
+               <div class="w3-container ">
+                  <div class="w3-row">
+                     <div class="w3-half"><label for="Raffle">Enter at least ten comma separated numbers ranging from 1 through 100 Raffle field:</label></div>
+                     <div class="w3-half"><input type="text" id="Raffle" name="Raffle" placeholder="Ex: 1,2,3,4....">
+                     </div>
+                     </div>
+               </div>
+               <br>
+               <br>          
+               <!--Additional Comments-->
+               <div class="w3-container ">
+               <div class="w3-row">
+               <div class="w3-half"><label for="comments">Additional Comments: </label></div>
+               <div class="w3-half"><textarea id="comments" name="comments" rows="4" cols="50"></textarea></div>
+               </div>
+               </div>
+               <!--Submit and cancel Button-->
+                <button type="submit" value="Submit">Submit</button>
+                <button type="reset" value="Reset">Cancel</button>
+            </form>
+         </article>
+      </section>
+      
+   
+</body></html>
