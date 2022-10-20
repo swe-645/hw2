@@ -13,7 +13,7 @@ pipeline {
                 withAnt(installation: 'Ant 1.10.7') {
                         sh'''
                         #!/bin/bash
-                        cd ~/workspace/swe-645/hw2
+                        cd ~/swe-645
                         ls
                         ant war
                         '''
