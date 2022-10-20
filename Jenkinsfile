@@ -10,10 +10,10 @@ pipeline {
         stage('Cloning Git') {
             steps{
                 git 'https://github.com/swe-645/hw2.git'
-                withAnt(installation: 'Ant1.10.7') {
+                withAnt(installation: 'Ant 1.10.7') {
                         sh'''
                         #!/bin/bash
-                        cd ~/workspace/swe-645
+                        cd ~/workspace/swe-645/hw2
                         ls
                         ant war
                         '''
