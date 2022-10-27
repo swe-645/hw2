@@ -1,81 +1,28 @@
-pipeline {
-    environment {
-        registry = "bhargavi645/hw2"
-        registryCredential = 'dockerhub'
-        dockerImage = ''
-    }
+pipeline{
     agent any
-    
-    stages {
-        stage('Cloning Git') {
-            steps{
-                git 'https://github.com/swe-645/hw2.git'
-                withAnt(installation: 'Ant 1.10.7') {
-                        sh'''
-                        #!/bin/bash
-                        cd ~/swe-645.hw2
-                        ls
-                        ant war
-                        '''
-                }
-            }
-        }
-
-        stage('Build') {
-            steps {
-                echo 'Building..'
-                script {
-
-                  dockerImage = docker.build registry + ":$BUILD_NUMBER"
-                }
-
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
-
-        stage('Deploy Image') {
+    environment {
+        DOCKERHUB_PASS = credentials('docker-pass')
+    }
+    stages{
+        stage("Build a new version of app on new commit"){
             steps{
                 script{
-                    docker.withRegistry('',registryCredential){
-                        dockerImage.push()
-                    }
+                    checkout scm
+                    sh 'rm -rf *.var'
+                    sh 'jar -cvf mypart2project.war -C src/main/webapp .'
+                    sh 'echo ${env.BUILD_ID}'
+                    def customImage = docker.build("nidhish98/studentsurvey645:${env.BUILD_ID}")
+                    echo '${customImage}'
                 }
             }
         }
-
-        
-		
-		stage('redeploy') {
+        stage("Push image to docker hub"){
             steps{
-               
-               sh'''
-               #!/bin/bash
-                docker login
-                docker pull bhargavi645/hw2:$BUILD_NUMBER
-                sudo -s source /etc/environment
-                kubectl --kubeconfig /home/ubuntu/.kube/config set image deployment swe-645 hw2=docker.io/bhargavi645/hw2:$BUILD_NUMBER
-            '''
+                script{
+                    sh 'docker push nidhish98/studentsurvey645:${env.BUILD_ID}'
+                }
             }
         }
-
-        stage('Remove Unused docker image') {
-          steps{
-            sh "docker rmi $registryRestful:$BUILD_NUMBER"
-            sh "docker rmi $registryApp:$BUILD_NUMBER"
-          }
-        }
-		
     }
-
-     
 }
 
