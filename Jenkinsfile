@@ -16,7 +16,7 @@ pipeline{
                 script{
                     checkout scm
                     sh 'rm -rf *.var'
-                    sh 'jar -cvf survey.war -C src/main/webapp .'
+                    sh 'jar -cvf swe-hw2.war -C src/main/webapp .'
                     sh 'echo ${env.BUILD_ID}'
                     def customImage = docker.build("nidhish98/studentsurvey645:${env.BUILD_ID}")
                     echo '${customImage}'
